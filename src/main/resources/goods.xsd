@@ -1,68 +1,116 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
-<!-- definition of simple elements -->
-
-<xs:complexType name="good">
-	<xs:sequence>
-		<xs:element name="manufacturer" type="xs:string"/>
-		<xs:element name="model" type="xs:string"/>
-		<xs:element name="date" type="xs:date"/>
-		<xs:element name="color" type="xs:string"/>
-		<xs:element name="amount" type="xs:string"/>
-	</xs:sequence>
-	<xs:attribute name="id" type="xs:string" use="required"/>
-</xs:complexType>
-
-<xs:element name="goods">
-	<xs:complexType>
-		<xs:sequence>
-			
-			<xs:element name="food">
-				<xs:complexType>
-					<xs:sequence>
-						
-						<xs:element name="cake">
-							<xs:element ref="good"/>
-						</xs:element>
-						
-						<xs:element name="candy">
-							<xs:element name="good" type="good"/>
-						</xs:element>
-						
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			
-			<xs:element name="clothes">
-				<xs:complexType>
-					<xs:sequence>
-						
-						<xs:element name="coat">
-							<xs:element name="good" type="good"/>
-						</xs:element>
-						
-						<xs:element name="t-shirt">
-							<xs:element name="good" type="good"/>
-						</xs:element>
-						
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			
-			<xs:element name="furniture">
-				<xs:complexType>
-					<xs:sequence>
-						
-						<xs:element name="table">
-							<xs:element name="good" type="good"/>
-						</xs:element>
-						
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			
-		</xs:sequence>
-	</xs:complexType>
-</xs:element>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="goods">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="food">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="cake">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="good" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="manufacturer"/>
+													<xs:element type="xs:string" name="model"/>
+													<xs:element type="xs:string" name="date"/>
+													<xs:element type="xs:string" name="color"/>
+													<xs:element type="xs:string" name="amount"/>
+												</xs:sequence>
+												<xs:attribute type="xs:short" name="id"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="candy">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="good">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="manufacturer"/>
+													<xs:element type="xs:string" name="model"/>
+													<xs:element type="xs:string" name="date"/>
+													<xs:element type="xs:string" name="color"/>
+													<xs:element type="xs:string" name="amount"/>
+												</xs:sequence>
+												<xs:attribute type="xs:short" name="id"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="clothes">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="coat">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="good">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="manufacturer"/>
+													<xs:element type="xs:string" name="model"/>
+													<xs:element type="xs:string" name="date"/>
+													<xs:element type="xs:string" name="color"/>
+													<xs:element type="xs:string" name="amount"/>
+												</xs:sequence>
+												<xs:attribute type="xs:short" name="id"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="t-shirt">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="good">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="manufacturer"/>
+													<xs:element type="xs:string" name="model"/>
+													<xs:element type="xs:string" name="date"/>
+													<xs:element type="xs:string" name="color"/>
+													<xs:element type="xs:string" name="amount"/>
+												</xs:sequence>
+												<xs:attribute type="xs:short" name="id"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="furniture">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="table">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="good">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="manufacturer"/>
+													<xs:element type="xs:string" name="model"/>
+													<xs:element type="xs:string" name="date"/>
+													<xs:element type="xs:string" name="color"/>
+													<xs:element type="xs:byte" name="amount"/>
+												</xs:sequence>
+												<xs:attribute type="xs:int" name="id"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 </xs:schema>

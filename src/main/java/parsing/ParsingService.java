@@ -15,11 +15,11 @@ import java.io.FileNotFoundException;
 
 public class ParsingService {
     public void parser() throws FileNotFoundException, XMLStreamException, JAXBException {
-        File file = new File("goods.xml");
+        File file = new File("C:\\Users\\Nik\\IdeaProjects\\PracticeXML\\src\\main\\resources\\goods.xml");
         // STAX
         XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
         XMLEventReader xmlEventReader = xmlInputFactory.createXMLEventReader(
-                new FileInputStream("C:\\Users\\Nikita_Shirobokov\\IdeaProjects\\PracticeXML\\src\\main\\resources\\goods.xml"));
+                new FileInputStream(file));
 
         // JAXBxmlEvent.isStartElement()
         JAXBContext context = JAXBContext.newInstance(Good.class);
