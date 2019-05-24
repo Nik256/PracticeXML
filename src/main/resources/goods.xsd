@@ -56,7 +56,7 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="t-shirt">
+                            <xs:element name="tshirt">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="good" maxOccurs="unbounded" minOccurs="0" type="good"/>

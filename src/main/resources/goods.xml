@@ -39,7 +39,7 @@
 				<amount>100$, 26pcs</amount>
 			</good>
 		</coat>
-		<t-shirt>
+		<tshirt>
 			<good id="7765">
 				<manufacturer>Huafang Textile Co Ltd.</manufacturer>
 				<model>HJ943</model>
@@ -47,7 +47,7 @@
 				<color>White</color>
 				<amount>5$, 1024pcs</amount>
 			</good>
-		</t-shirt>
+		</tshirt>
 	</clothes>
 	
 	<furniture>

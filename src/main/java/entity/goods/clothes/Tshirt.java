@@ -7,24 +7,23 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement(name = "t-shirt")
+@XmlRootElement(name = "tshirt")
 public class Tshirt {
-    @XmlElementWrapper(name = "t-shirt")
     @XmlElement(name = "good")
-    private List<Good> goodList;
+    private List<Good> good;
 
     public Tshirt() {
     }
 
-    public Tshirt(List<Good> goodList) {
-        this.goodList = goodList;
+    public Tshirt(List<Good> good) {
+        this.good = good;
     }
 
-    public List<Good> getGoodList() {
-        return goodList;
+    public List<Good> getGood() {
+        return good;
     }
 
-    public void setGoodList(List<Good> goodList) {
-        this.goodList = goodList;
+    public void setGood(List<Good> good) {
+        this.good = good;
     }
 }

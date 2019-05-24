@@ -9,22 +9,21 @@ import java.util.List;
 
 @XmlRootElement(name = "furniture")
 public class Furniture {
-    @XmlElementWrapper(name = "furniture")
     @XmlElement(name = "table")
-    private List<Table> tableList;
+    private List<Table> table;
 
     public Furniture() {
     }
 
-    public Furniture(List<Table> tableList) {
-        this.tableList = tableList;
+    public Furniture(List<Table> table) {
+        this.table = table;
     }
 
-    public List<Table> getTableList() {
-        return tableList;
+    public List<Table> getTable() {
+        return table;
     }
 
-    public void setTableList(List<Table> tableList) {
-        this.tableList = tableList;
+    public void setTable(List<Table> table) {
+        this.table = table;
     }
 }

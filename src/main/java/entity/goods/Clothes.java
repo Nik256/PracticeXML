@@ -10,34 +10,32 @@ import java.util.List;
 
 @XmlRootElement(name = "clothes")
 public class Clothes {
-    @XmlElementWrapper(name = "clothes")
     @XmlElement(name = "coat")
-    private List<Coat> coatList;
-    @XmlElementWrapper(name = "clothes")
-    @XmlElement(name = "t-shirt")
-    private List<Tshirt> tshirtList;
+    private List<Coat> coat;
+    @XmlElement(name = "tshirt")
+    private List<Tshirt> tshirt;
 
     public Clothes() {
     }
 
-    public Clothes(List<Coat> coatList, List<Tshirt> tshirtList) {
-        this.coatList = coatList;
-        this.tshirtList = tshirtList;
+    public Clothes(List<Coat> coat, List<Tshirt> tshirt) {
+        this.coat = coat;
+        this.tshirt = tshirt;
     }
 
-    public List<Coat> getCoatList() {
-        return coatList;
+    public List<Coat> getCoat() {
+        return coat;
     }
 
-    public void setCoatList(List<Coat> coatList) {
-        this.coatList = coatList;
+    public void setCoat(List<Coat> coat) {
+        this.coat = coat;
     }
 
-    public List<Tshirt> getTshirtList() {
-        return tshirtList;
+    public List<Tshirt> getTshirt() {
+        return tshirt;
     }
 
-    public void setTshirtList(List<Tshirt> tshirtList) {
-        this.tshirtList = tshirtList;
+    public void setTshirt(List<Tshirt> tshirt) {
+        this.tshirt = tshirt;
     }
 }

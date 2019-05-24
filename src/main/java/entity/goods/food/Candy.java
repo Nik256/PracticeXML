@@ -9,22 +9,21 @@ import java.util.List;
 
 @XmlRootElement(name = "candy")
 public class Candy {
-    @XmlElementWrapper(name = "candy")
     @XmlElement(name = "good")
-    private List<Good> goodList;
+    private List<Good> good;
 
     public Candy() {
     }
 
-    public Candy(List<Good> goodList) {
-        this.goodList = goodList;
+    public Candy(List<Good> good) {
+        this.good = good;
     }
 
-    public List<Good> getGoodList() {
-        return goodList;
+    public List<Good> getGood() {
+        return good;
     }
 
-    public void setGoodList(List<Good> goodList) {
-        this.goodList = goodList;
+    public void setGood(List<Good> good) {
+        this.good = good;
     }
 }

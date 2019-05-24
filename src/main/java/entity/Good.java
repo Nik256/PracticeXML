@@ -2,31 +2,70 @@ package entity;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
+//@XmlType(propOrder={"title", "book", "count", "testData"})
 @XmlRootElement(name = "good")
 public class Good {
-    @XmlAttribute(name = "id")
     private int id;
-    @XmlElement(name = "manufacturer")
     private String manufacturer;
-    @XmlElement(name = "model")
     private String model;
-    @XmlElement(name = "date")
     private String date;
-    @XmlElement(name = "color")
     private String color;
-    @XmlElement(name = "amount")
     private String amount;
-    @Override
-    public String toString() {
-        return "Good{" +
-                "id=" + id +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", model='" + model + '\'' +
-                ", date='" + date + '\'' +
-                ", color='" + color + '\'' +
-                ", amount='" + amount + '\'' +
-                '}';
+
+    @XmlAttribute
+    public int getId() {
+        return id;
+    }
+
+    @XmlElement(name = "manufacturer")
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    @XmlElement(name = "model")
+    public String getModel() {
+        return model;
+    }
+
+    @XmlElement(name = "date")
+    public String getDate() {
+        return date;
+    }
+
+    @XmlElement(name = "color")
+    public String getColor() {
+        return color;
+    }
+
+    @XmlElement(name = "amount")
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 }
