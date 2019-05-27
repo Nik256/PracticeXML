@@ -1,13 +1,15 @@
 package entity;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
-//@XmlType(propOrder={"title", "book", "count", "testData"})
 @XmlRootElement(name = "good")
 public class Good {
+    @JacksonXmlProperty(isAttribute = true, localName = "id")
     private int id;
     private String manufacturer;
     private String model;

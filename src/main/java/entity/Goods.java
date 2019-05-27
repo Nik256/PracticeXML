@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import entity.goods.Clothes;
 import entity.goods.Food;
 import entity.goods.Furniture;
@@ -7,6 +8,8 @@ import entity.goods.Furniture;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
+@JacksonXmlRootElement(localName = "goods")
 @XmlRootElement(name = "goods")
 public class Goods {
     @XmlElement(name = "food")

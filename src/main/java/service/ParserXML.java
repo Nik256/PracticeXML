@@ -12,6 +12,7 @@ import javax.xml.stream.events.XMLEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
 
 public class ParserXML {
     public void showXMLStructure(File xmlFile) {
@@ -36,5 +37,6 @@ public class ParserXML {
         } catch (JAXBException | XMLStreamException | FileNotFoundException e) {
             e.printStackTrace();
         }
+        LocalDate date = LocalDate.now();
     }
 }
