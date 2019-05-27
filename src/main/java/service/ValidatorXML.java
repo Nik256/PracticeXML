@@ -1,6 +1,9 @@
 package service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
+
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
@@ -10,6 +13,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class ValidatorXML {
+    final static Logger log = LogManager.getLogger(ValidatorXML.class.getName());
+
     public static boolean validate(File xmlFile, File xsdFile) {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try {
@@ -19,7 +24,7 @@ public class ValidatorXML {
             validator.validate(new StreamSource(xmlFile));
             return true;
         } catch (IOException | SAXException e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
             return false;
         }
     }

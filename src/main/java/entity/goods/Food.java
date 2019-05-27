@@ -5,7 +5,6 @@ import entity.goods.food.Candy;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
 
 @XmlRootElement(name = "food")
 public class Food {

@@ -7,8 +7,6 @@ import service.ParserXML;
 import service.ValidatorXML;
 
 import java.io.File;
-import java.net.URL;
-import java.util.Objects;
 
 public class DemoService {
     final static Logger log = LogManager.getLogger(DemoService.class.getName());
@@ -23,15 +21,5 @@ public class DemoService {
         File json = new File("src/main/resources/converted/goods.json");
         ConverterXMLJSON.convertXMLtoJSON(xml.getPath(), json.getPath());
         ConverterXMLJSON.convertJSONtoXML(json.getPath(), "src/main/resources/converted/goods.xml");
-    }
-
-    private String getResource(String filename) {
-        URL resource = getClass().getClassLoader().getResource(filename);
-        try {
-            Objects.requireNonNull(resource);
-        } catch (NullPointerException e) {
-            System.out.println(filename + " not found");
-        }
-        return resource.getFile();
     }
 }

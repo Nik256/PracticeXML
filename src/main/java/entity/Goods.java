@@ -7,7 +7,6 @@ import entity.goods.Food;
 import entity.goods.Furniture;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 
 @JacksonXmlRootElement(localName = "goods")
