@@ -9,21 +9,28 @@ import java.util.List;
 
 @XmlRootElement(name = "furniture")
 public class Furniture {
-    @XmlElement(name = "table")
-    private List<Table> table;
+    private Table table;
 
     public Furniture() {
     }
 
-    public Furniture(List<Table> table) {
+    public Furniture(Table table) {
         this.table = table;
     }
 
-    public List<Table> getTable() {
+    @XmlElement(name = "table")
+    public Table getTable() {
         return table;
     }
 
-    public void setTable(List<Table> table) {
+    public void setTable(Table table) {
         this.table = table;
+    }
+
+    @Override
+    public String toString() {
+        return "Furniture{" +
+                "table=" + table +
+                '}';
     }
 }

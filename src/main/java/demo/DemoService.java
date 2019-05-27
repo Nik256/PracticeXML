@@ -1,26 +1,28 @@
 package demo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import service.ConverterXMLJSON;
 import service.ParserXML;
 import service.ValidatorXML;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 public class DemoService {
-    public void execute() {
-        File xmlFile = new File(getResource("goods.xml"));
-        File xsdFile = new File(getResource("goods.xsd"));
+    final static Logger log = LogManager.getLogger(DemoService.class.getName());
 
-        ConverterXMLJSON converter = new ConverterXMLJSON();
-        converter.convertXMLtoJSON(xmlFile.getPath(), "src/main/resources/goods.json");
-        converter.convertJSONtoXML("src/main/resources/goods.json", "goods.xml");
+    public void execute() {
+        File xml = new File("src/main/resources/goods.xml");
+        ParserXML.showXMLStructure(xml);
+
+        File xsd = new File("src/main/resources/goods.xsd");
+        log.info("XML is valid? " + ValidatorXML.validate(xml, xsd));
+
+        File json = new File("src/main/resources/converted/goods.json");
+        ConverterXMLJSON.convertXMLtoJSON(xml.getPath(), json.getPath());
+        ConverterXMLJSON.convertJSONtoXML(json.getPath(), "src/main/resources/converted/goods.xml");
     }
 
     private String getResource(String filename) {

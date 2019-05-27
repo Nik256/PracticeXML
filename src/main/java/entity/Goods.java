@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import entity.goods.Clothes;
 import entity.goods.Food;
@@ -10,13 +11,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @JacksonXmlRootElement(localName = "goods")
-@XmlRootElement(name = "goods")
+@JsonRootName(value = "goods")
 public class Goods {
-    @XmlElement(name = "food")
     private Food food;
-    @XmlElement(name = "clothes")
     private Clothes clothes;
-    @XmlElement(name = "furniture")
     private Furniture furniture;
 
     public Goods() {
@@ -28,6 +26,7 @@ public class Goods {
         this.furniture = furniture;
     }
 
+    @XmlElement(name = "food")
     public Food getFood() {
         return food;
     }
@@ -36,6 +35,7 @@ public class Goods {
         this.food = food;
     }
 
+    @XmlElement(name = "clothes")
     public Clothes getClothes() {
         return clothes;
     }
@@ -44,6 +44,7 @@ public class Goods {
         this.clothes = clothes;
     }
 
+    @XmlElement(name = "furniture")
     public Furniture getFurniture() {
         return furniture;
     }

@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ValidatorXML {
-    public boolean validate(File xmlFile, File xsdFile) {
+    public static boolean validate(File xmlFile, File xsdFile) {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try {
             Schema schema = schemaFactory.newSchema(xsdFile);

@@ -9,7 +9,6 @@ import java.util.List;
 
 @XmlRootElement(name = "candy")
 public class Candy {
-    @XmlElement(name = "good")
     private List<Good> good;
 
     public Candy() {
@@ -19,11 +18,19 @@ public class Candy {
         this.good = good;
     }
 
+    @XmlElement(name = "good")
     public List<Good> getGood() {
         return good;
     }
 
     public void setGood(List<Good> good) {
         this.good = good;
+    }
+
+    @Override
+    public String toString() {
+        return "Candy{" +
+                "good=" + good +
+                '}';
     }
 }

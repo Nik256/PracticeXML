@@ -70,4 +70,16 @@ public class Good {
     public void setAmount(String amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                "id=" + id +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", date='" + date + '\'' +
+                ", color='" + color + '\'' +
+                ", amount='" + amount + '\'' +
+                '}';
+    }
 }

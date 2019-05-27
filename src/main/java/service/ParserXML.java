@@ -1,42 +1,33 @@
 package service;
 
-import entity.Good;
+import entity.Goods;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.simple.SimpleLogger;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.*;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.events.XMLEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.time.LocalDate;
 
 public class ParserXML {
-    public void showXMLStructure(File xmlFile) {
+    final static Logger log = LogManager.getLogger(ParserXML.class.getName());
+
+    public static void showXMLStructure(File xmlFile) {
         try {
             XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
             XMLEventReader xmlEventReader = xmlInputFactory.createXMLEventReader(new FileInputStream(xmlFile));
 
-            JAXBContext context = JAXBContext.newInstance(Good.class);
+            JAXBContext context = JAXBContext.newInstance(Goods.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-
-            while (xmlEventReader.hasNext()) {
-                XMLEvent xmlEvent = xmlEventReader.peek();
-
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals("good")) {
-                    Good good = unmarshaller.unmarshal(xmlEventReader, Good.class).getValue();
-                    System.out.println("\t" + good);
-                } else if (xmlEvent.isStartElement() || xmlEvent.isEndElement()) {
-                    System.out.println(xmlEvent.toString());
-                }
-                xmlEventReader.nextEvent();
-            }
+            JAXBElement<Goods> jb = unmarshaller.unmarshal(xmlEventReader, Goods.class);
+            Goods goods = jb.getValue();
+            log.info(goods.toString());
         } catch (JAXBException | XMLStreamException | FileNotFoundException e) {
-            e.printStackTrace();
+            log.error(e.getStackTrace());
         }
-        LocalDate date = LocalDate.now();
     }
 }
