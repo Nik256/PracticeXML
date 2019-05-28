@@ -13,13 +13,15 @@ import java.io.File;
 import java.io.IOException;
 
 public class ValidatorXML {
-    final static Logger log = LogManager.getLogger(ValidatorXML.class.getName());
+    private static final Logger log = LogManager.getLogger(ValidatorXML.class.getName());
+
+    private ValidatorXML() {
+    }
 
     public static boolean validate(File xmlFile, File xsdFile) {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try {
             Schema schema = schemaFactory.newSchema(xsdFile);
-
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(xmlFile));
             return true;

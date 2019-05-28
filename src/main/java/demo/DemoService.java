@@ -9,7 +9,7 @@ import service.ValidatorXML;
 import java.io.File;
 
 public class DemoService {
-    final static Logger log = LogManager.getLogger(DemoService.class.getName());
+    private static final Logger log = LogManager.getLogger(DemoService.class.getName());
 
     public void execute() {
         File xml = new File("src/main/resources/goods.xml");

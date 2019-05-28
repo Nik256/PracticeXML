@@ -16,7 +16,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class ParserXML {
-    final static Logger log = LogManager.getLogger(ParserXML.class.getName());
+    private static final Logger log = LogManager.getLogger(ParserXML.class.getName());
+
+    private ParserXML() {
+    }
 
     public static void showXMLStructure(File xmlFile) {
         try {

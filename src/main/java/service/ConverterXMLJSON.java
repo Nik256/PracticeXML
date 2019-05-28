@@ -17,7 +17,10 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class ConverterXMLJSON {
-    final static Logger log = LogManager.getLogger(ConverterXMLJSON.class.getName());
+    private static final Logger log = LogManager.getLogger(ConverterXMLJSON.class.getName());
+
+    private ConverterXMLJSON() {
+    }
 
     public static void convertXMLtoJSON(String filePathXML, String filePathJSON) {
         String data = readFileToString(filePathXML);

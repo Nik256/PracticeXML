@@ -1,3 +1,5 @@
+package main;
+
 import demo.DemoService;
 
 public class Main {
