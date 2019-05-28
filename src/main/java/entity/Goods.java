@@ -1,15 +1,12 @@
 package entity;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import entity.goods.Clothes;
 import entity.goods.Food;
 import entity.goods.Furniture;
 
 import javax.xml.bind.annotation.XmlElement;
 
-
-@JacksonXmlRootElement(localName = "goods")
 @JsonRootName(value = "goods")
 public class Goods {
     private Food food;
