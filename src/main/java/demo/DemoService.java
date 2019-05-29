@@ -11,7 +11,10 @@ import java.io.File;
 public class DemoService {
     private static final Logger log = LogManager.getLogger(DemoService.class.getName());
 
-    public void execute() {
+    private DemoService() {
+    }
+
+    public static void execute() {
         File xml = new File("src/main/resources/goods.xml");
         ParserXML.showXMLStructure(xml);
 
